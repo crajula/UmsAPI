@@ -1,25 +1,37 @@
 package com.investec.ums.service.impl;
 
-import com.investec.ums.dto.UserDetailsRequestDTO;
-import com.investec.ums.repository.UserDetailsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.investec.ums.dto.UserDetailsDTO;
+import com.investec.ums.service.UserDetailsService;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserDetailsServiceImpl {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
-   @Autowired
-   UserDetailsRepository userRepository;
-   public UserDetailsRequestDTO getEmployeeById(int id) {
-      return null;
-   }
-   public List<UserDetailsRequestDTO> getAllEmployees(){
-      return null;
-   }
-   public void saveOrUpdate(UserDetailsRequestDTO userDetailsRequestDTO) {
-   }
-   public void deleteUserById(int id) {
-   }
+	@Override
+	public UserDetailsDTO getUserById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDetailsDTO> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveOrUpdate(UserDetailsDTO userDetailsRequestDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteUserById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

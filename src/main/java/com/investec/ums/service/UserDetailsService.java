@@ -1,26 +1,16 @@
 package com.investec.ums.service;
 
-import com.investec.ums.dto.UserDetailsRequestDTO;
-import com.investec.ums.dto.UserDetailsResponseDTO;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
+import com.investec.ums.dto.UserDetailsDTO;
 
 import java.util.List;
 
-@Service
-public class UserDetailsService {
+public interface UserDetailsService {
 
-    public UserDetailsResponseDTO getUserById(int id) {
-        return null;
-    }
+    public UserDetailsDTO getUserById(int id);
 
-    public List<UserDetailsRequestDTO> getAllUsers() {
-        return null;
-    }
+    public List<UserDetailsDTO> getAllUsers();
 
-    public void saveOrUpdate(UserDetailsRequestDTO userDetailsRequestDTO) {
-    }
-
-    public void deleteUserById(int id) {
-    }
+    public void saveOrUpdate(UserDetailsDTO userDetailsRequestDTO);
+    
+    public void deleteUserById(int id);
 }

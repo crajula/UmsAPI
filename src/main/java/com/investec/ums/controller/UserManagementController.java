@@ -1,36 +1,48 @@
 package com.investec.ums.controller;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.tutorialspoint.entity.Employee;
-import com.tutorialspoint.service.EmployeeService;
+
+import com.investec.ums.dto.UserDetailsDTO;
+import com.investec.ums.dto.UserDetailsRequestDTO;
+import com.investec.ums.service.UserDetailsService;
+
+
+
+
 @RestController
-@RequestMapping(path = "/emp")
+@RequestMapping(path = "/ums")
 public class UserManagementController {
+   
    @Autowired
-   EmployeeService employeeService;
-   @GetMapping("/employees")
-   public List<Employee> getAllEmployees(){
+   private UserDetailsService userDetailsService;
+   
+   @GetMapping("/users")
+   public List<UserDetailsDTO> getAllUsers(){
       return null;
    }
-   @GetMapping("/employee/{id}")
-   public Employee getEmployee(@PathVariable("id") int id) {
-      return null;;
+   
+   @GetMapping("/user/{id}")
+   public UserDetailsDTO getUser(@PathVariable("id") int id) {
+      return null;
    }
-   @DeleteMapping("/employee/{id}")
-   public void deleteEmployee(@PathVariable("id") int id) {
+   
+   @DeleteMapping("/user/{id}")
+   public void deleteUser(@PathVariable("id") int id) {
    }
-   @PostMapping("/employee")
-   public void addEmployee(@RequestBody Employee employee) {
+   
+   @PostMapping("/add/user")
+   public void addUser(@RequestBody @Valid UserDetailsRequestDTO userDetailsRequestDTO) {
+	   
    }
-   @PutMapping("/employee")
-   public void updateEmployee(@RequestBody Employee employee) {
-   }	
+ 
 }

@@ -1,23 +1,25 @@
 package com.investec.ums.dto;
-import com.investec.ums.entity.User;
-import lombok.*;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class AddressDTO {
-   private int id;
-   private String houseNo;
-   private String buildingName;
-   private String streetName;
-   private String areaName;
-   private String city;
-   private String state;
-   private String country;
-   private String pin;
-   private UserDTO user;
+
+	private int id;
+	private String houseNo;
+	private String buildingName;
+	private String streeName;
+	private String area;
+	private String city;
+	private String state;
+	private String country;
+	private String pinCode;
+	private UserDTO user;
+
 }

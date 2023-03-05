@@ -1,48 +1,37 @@
 package com.investec.ums.controller;
-
 import com.investec.ums.dto.UserDTO;
-import com.investec.ums.dto.UserDetailsRequestDTO;
-import com.investec.ums.dto.UserDetailsResponseDTO;
 import com.investec.ums.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/ums")
+@RequestMapping(path = "/user")
 public class UserManagementController {
+   
    @Autowired
-   UserDetailsService userDetailsService;
-
-   @PostMapping("/create/user")
-   public ResponseEntity<UserDetailsResponseDTO> addUser(@RequestBody UserDetailsRequestDTO requestDTO) {
-      userDetailsService.saveOrUpdate(requestDTO);
-      return new ResponseEntity<>(HttpStatus.CREATED);
+   private UserDetailsService userService;  
+      
+   @PostMapping("/create")
+   public ResponseEntity<Object> createUser(@RequestBody @Valid UserDTO userDTO) {
+		   return new ResponseEntity<>(userService.createUser(userDTO),HttpStatus.CREATED);
    }
+ 
+   @PostMapping("/update")
+   public ResponseEntity<Object> updateUser(@RequestBody @Valid UserDTO userDTO) {
+		   return new ResponseEntity<>(userService.updateUser(userDTO),HttpStatus.OK);
+   }   
 
-   @GetMapping("/users")
-   public ResponseEntity<List<UserDTO>> getAllUsers(){
-      return new ResponseEntity<>(userDetailsService.getAllUsers(),HttpStatus.OK);
+   @PostMapping("/search")
+   public ResponseEntity<Object> searchUser(@RequestBody @Valid UserDTO userDTO) {
+		   return new ResponseEntity<>(userService.updateUser(userDTO),HttpStatus.OK);
    }
-
-   @GetMapping("/user/{id}")
-   public ResponseEntity<UserDTO> getUser(@PathVariable("id") int id) {
-      return new ResponseEntity<>(userDetailsService.getUserById(id), HttpStatus.OK);
-   }
-
-   @DeleteMapping("/User/{id}")
-   public ResponseEntity deleteUser(@PathVariable("id") int id) {
-      userDetailsService.deleteUserById(id);
-      return new ResponseEntity<>(HttpStatus.OK);
+   
+   @GetMapping("/all")
+   public ResponseEntity<Object> findAllUsers() {
+		   return new ResponseEntity<>(userService.findAllUsers(),HttpStatus.OK);
    }
 }

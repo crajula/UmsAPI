@@ -1,20 +1,33 @@
 package com.investec.ums.dto;
-import com.investec.ums.entity.Address;
-import lombok.*;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class UserDTO {
-   private int id;
-   private String firstName;
-   private String lastName;
-   private String mobileNumber;
-   private int idNumber;
-   private List<AddressDTO> address;
+
+	private int id;
+
+	@NotBlank(message = "Firstname is mandatory.")
+	private String firstName;
+
+	@NotBlank(message = "Lastname is mandatory.")
+	private String lastName;
+
+	private String mobileNumber;
+
+	@NotBlank(message = "ID is mandatory.")
+	@Pattern(regexp = "(^$|[0-9]{13})", message = "Invalid ID number")
+	private String idNumber;
+	private List<AddressDTO> address;
+
 }

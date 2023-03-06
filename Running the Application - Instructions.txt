@@ -1,0 +1,23 @@
+<<<<<<< Running the Application Instructions. >>>>>>
+-----------------------------------------------------
+
+Note: Please install, Java 1.8.0_xxx, and Maven 3.9.0  running this application.
+     >> Install Postman tool for testing.
+
+1. Download the attached Ums-Demo-Project-1.0.0-SNAPSHOT.jar file
+2. Create a directory on any drive (ex: C:\\ or D:\\)
+3. copy the jar file to newly created folder 
+4. Open command prompt and change the directory as mentioned at step3.
+5. Run this command : java -jar Ums-Demo-Project-1.0.0-SNAPSHOT.jar 
+	<Note: please refer the attached "Command to Run the jar file" screen>
+6. please download and import attached "ums-urls.postman_collection.json" to postman tool
+7. start testing in this sequence: create, update, search, findAll 
+
+Data verification:
+--------------------
+1. After after create or update of the user 
+2. Login to h2 database at http://localhost:8080/h2-ui using below details:
+     JDBC URL: jdbc:h2:mem:dcbapp
+      Driver Class: org.h2.Driver
+	Username: sa
+      Password: password
